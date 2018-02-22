@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema targetNamespace="http://ereg.egov.bg/segment/R-0025" xmlns="http://ereg.egov.bg/segment/R-0025" 
+
+    xmlns:prs="http://ereg.egov.bg/segment/R-0023"
+    
+    xmlns:ei="http://ereg.egov.bg/value/0008-000028"
+    
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    elementFormDefault="qualified">
+
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0023" />
+    
+    <xsd:import namespace="http://ereg.egov.bg/value/0008-000028" />
+
+	<xsd:complexType name="PaymentRequestInquiryByApplicantAndStatus">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="bg">Запитване за налични в средата заявки за плащане по наредител и статус на заявката</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+            <xsd:element name="EntityIdentifier" type="ei:EntityIdentifier" minOccurs="0" />
+			<xsd:element name="PaymentRequestStatus" type="prs:PaymentRequestStatus" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

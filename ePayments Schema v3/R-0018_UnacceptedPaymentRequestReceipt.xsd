@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema targetNamespace="http://ereg.egov.bg/segment/R-0018" xmlns="http://ereg.egov.bg/segment/R-0018" 
+
+    xmlns:pr="http://ereg.egov.bg/segment/R-0015"
+    xmlns:pre="http://ereg.egov.bg/segment/R-0016"
+    xmlns:prvt="http://ereg.egov.bg/segment/R-0017"
+    
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    elementFormDefault="qualified">
+
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0015" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0016" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0017" />
+    
+	<xsd:complexType name="UnacceptedPaymentRequestReceipt">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="bg">Съобщение, че заявката за плащане не се приема</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+          <xsd:element name="PaymentRequestError" type="pre:PaymentRequestError" minOccurs="0" />
+          <xsd:element name="PaymentRequestValidationTime" type="prvt:PaymentRequestValidationTime" minOccurs="0" />   
+          <xsd:element name="PaymentRequest" type="pr:PaymentRequest" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

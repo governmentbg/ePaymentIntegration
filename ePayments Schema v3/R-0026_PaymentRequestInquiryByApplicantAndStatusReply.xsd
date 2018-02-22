@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema targetNamespace="http://ereg.egov.bg/segment/R-0027" xmlns="http://ereg.egov.bg/segment/R-0027" 
+
+    xmlns:pr="http://ereg.egov.bg/segment/R-0015"
+    xmlns:prid="http://ereg.egov.bg/segment/R-0019"
+    xmlns:prs="http://ereg.egov.bg/segment/R-0023"
+    
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    elementFormDefault="qualified">
+
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0015" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0019" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0023" />
+
+	<xsd:complexType name="PaymentRequestInquiryByApplicantAndStatusReply">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="bg">Отговор на запитване за  налични в средата заявки за плащане по наредител и статус на заявката</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+            <xsd:element name="PaymentRequestReply" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="PaymentRequestID" type="prid:PaymentRequestID" minOccurs="0" />
+                  <xsd:element name="PaymentRequestStatus" type="prs:PaymentRequestStatus" minOccurs="0" />   
+                  <xsd:element name="PaymentRequest" type="pr:PaymentRequest" minOccurs="0" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

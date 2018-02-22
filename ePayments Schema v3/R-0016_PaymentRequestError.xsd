@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema targetNamespace="http://ereg.egov.bg/segment/R-0016" xmlns="http://ereg.egov.bg/segment/R-0016" 
+
+    xmlns:tn="http://ereg.egov.bg/value/0008-000044"
+    xmlns:tu="http://ereg.egov.bg/segment/0009-000023"
+    
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    elementFormDefault="qualified">
+
+    <xsd:import namespace="http://ereg.egov.bg/value/0008-000044" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/0009-000023" />
+
+	<xsd:complexType name="PaymentRequestError">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="bg">Грешка допусната в заявка за плащане</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="TermName" type="tn:TermName" minOccurs="0" />
+            <xsd:element name="TermURI" type="tu:TermURI" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

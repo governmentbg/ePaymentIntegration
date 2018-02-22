@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema targetNamespace="http://ereg.egov.bg/segment/R-0015" xmlns="http://ereg.egov.bg/segment/R-0015" 
+
+    xmlns:ptc="http://ereg.egov.bg/segment/R-0001"
+    xmlns:crc="http://ereg.egov.bg/segment/R-0002"
+    xmlns:pra="http://ereg.egov.bg/segment/R-0003"
+    xmlns:prr="http://ereg.egov.bg/segment/R-0004"
+    xmlns:prt="http://ereg.egov.bg/segment/R-0005"
+    xmlns:prn="http://ereg.egov.bg/segment/R-0006"
+    xmlns:prd="http://ereg.egov.bg/segment/R-0007"
+    xmlns:ppp="http://ereg.egov.bg/segment/R-0008"
+    xmlns:ped="http://ereg.egov.bg/segment/R-0011"
+    xmlns:aip="http://ereg.egov.bg/segment/R-0012"
+    xmlns:su="http://ereg.egov.bg/segment/R-0013"
+    xmlns:ssu="http://ereg.egov.bg/segment/R-0014"
+    
+    xmlns:esd="http://ereg.egov.bg/segment/0009-000152"
+    xmlns:en="http://ereg.egov.bg/segment/0009-000013"
+    xmlns:esa="http://ereg.egov.bg/segment/0009-000016"
+    
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    
+    elementFormDefault="qualified">
+
+	<xsd:import namespace="http://ereg.egov.bg/segment/R-0001" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0002" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0003" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0004" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0005" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0006" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0007" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0008" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0011" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0012" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0013" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/R-0014" />
+    
+    <xsd:import namespace="http://ereg.egov.bg/segment/0009-000152" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/0009-000013" />
+    <xsd:import namespace="http://ereg.egov.bg/segment/0009-000016" />
+
+	<xsd:complexType name="PaymentRequest">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="bg">Заявка за плащане</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PaymentTypeCode" type="ptc:PaymentTypeCode" minOccurs="0" />
+            <xsd:element name="Currency" type="crc:Currency" minOccurs="0" />
+            <xsd:element name="PaymentAmount" type="pra:PaymentAmount" minOccurs="0" />
+            
+            <xsd:element name="ElectronicServiceProviderBasicData" type="esd:ElectronicAdministrativeServiceHeader" minOccurs="0" />
+            
+            <xsd:element name="ElectronicServiceProvideBankAccount" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="BIC" type="xsd:string" minOccurs="0" />
+                  <xsd:element name="IBAN" type="xsd:string" minOccurs="0" />
+                  <xsd:element name="EntityName" type="en:EntityBasicData" minOccurs="0" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            
+            <xsd:element name="ElectronicServiceApplicant" type="esa:ElectronicServiceApplicant" minOccurs="0" />
+            
+            <xsd:element name="PaymentReason" type="prr:PaymentReason" minOccurs="0" />
+           
+            <xsd:element name="PaymentReference" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="PaymentReferenceType" type="prt:PaymentReferenceType" minOccurs="0" />
+                  <xsd:element name="PaymentReferenceNumber" type="prn:PaymentReferenceNumber" minOccurs="0" />
+                  <xsd:element name="PaymentReferenceDate" type="prd:PaymentReferenceDate" minOccurs="0" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            
+            <xsd:element name="PaymentPeriod" type="ppp:PaymentPeriod" minOccurs="0" />
+            <xsd:element name="PaymentRequestExpirationDate" type="ped:PaymentRequestExpirationDate" minOccurs="0" />
+            <xsd:element name="AdditionalInformationInPaymentRequest" type="aip:AdditionalInformationInPaymentRequest" minOccurs="0" />
+            <xsd:element name="ElectronicAdministrativeServiceUriSUNAU" type="su:ElectronicAdministrativeServiceUriSUNAU" minOccurs="0" />
+            <xsd:element name="ElectronicAdministrativeServiceSupplierUriRA" type="ssu:ElectronicAdministrativeServiceSupplierUriRA" minOccurs="0" />
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
